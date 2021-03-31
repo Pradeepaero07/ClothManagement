@@ -1,0 +1,46 @@
+<div id="orph-dashboard-container" class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-12">
+
+            <h1 class="text-start">Dashboard</h1>
+            <hr>
+            <p id="notification" class="h6"></p>
+            <div class="accordion" id="orphDashBoardAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="userNotificationsAcc">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#orphCollapseOne" aria-expanded="true" aria-controls="orphCollapseOne">
+                            User Notifications
+                        </button>
+                    </h2>
+                    <div id="orphCollapseOne" class="accordion-collapse collapse show" aria-labelledby="userNotificationsAcc"
+                        data-bs-parent="#orphDashBoardAccordion">
+                        <div id="userNotifications" class="accordion-body">
+                            <strong id="orph-default-notification-info">No new donation requests!! Try looking Track Pickups section!!</strong>
+                            <div id="userNotifications-div" class="userNotifications-div">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="pickUpTrackerAcc">
+                        <button id="pickupTrackerAccBtn" class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#orphCollapseTwo" aria-expanded="false"
+                            aria-controls="orphCollapseTwo">
+                            Track Pickups
+                        </button>
+                    </h2>
+                    <div id="orphCollapseTwo" class="accordion-collapse collapse" aria-labelledby="pickUpTrackerAcc"
+                        data-bs-parent="#orphDashBoardAccordion">
+                        <div class="accordion-body">
+                            <strong id="orph-default-info">Your pick up schedule history will be shown here!</strong>
+                            <div id="pickUpHistory" class="pickUpHistory">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

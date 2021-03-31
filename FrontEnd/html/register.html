@@ -1,0 +1,45 @@
+<div class="container" id="signup-container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 mb-4">
+
+            <h1 class="text-center">Sign up</h1>
+            <hr>
+            <form>
+                <div class="mb-3">
+                    <label for="userName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="userName" aria-describedby="nameHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="userAddress" class="form-label">Address</label>
+                    <textarea class="form-control" placeholder="Present address" id="userAddress" style="height: 100px" required></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="userEmail" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="userPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="userPassword" required>
+                </div>
+                <div class="mb-3">
+                    <label for="userPhoneNo" class="form-label">Phone no</label>
+                    <input type="text" class="form-control" id="userPhoneNo" aria-describedby="phone-noHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="userType" class="form-label me-2">User type</label>
+                    <select class="form-select" id="userType">
+                        <option selected>Choose...</option>
+                        <option value="Doner">Doner</option>
+                        <option value="Orphanage">Orphanage</option>
+                    </select>
+                </div>
+                
+                <button id="sign-in-btn" type="button" class="btn btn-primary float-end" onclick="clothMgmtManager.registerUser();">Sign up</button>
+                <button id="back-btn" type="button" class="btn btn-primary float-end me-2" onclick="clothMgmtManager.loadLoginPage();">Back</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
