@@ -40,7 +40,6 @@ var clothMgmtManager = (function () {
             resourceURI = "html/orphanage_dashboard.html"
         }
         $.get(resourceURI, function (data) {
-            console.log("URI:", resourceURI);
             $('#container').empty();
             $('#container').append(data);
             if (sessionStorage.getItem('userType') === "Orphanage") {
@@ -65,6 +64,7 @@ var clothMgmtManager = (function () {
                                         + '<br><strong> Address: </strong> ' + data["user"]['address']
                                         + '<br><strong> Email ID: </strong> ' + data["user"]['email_id']
                                         + '<br><strong> Phone No: </strong> ' + data["user"]['phone_no']
+                                        + '<br><strong> Quantity: </strong> ' + data["notification"]['quantity'] + ' kg'
                                         + '<br><strong> Collection status: </strong> ' + data["notification"]['collection_status']
                                         + '</p>'
                                         + "<button id='optIn-btn-" + data["notification"]['id'] + "' type='button' class='btn btn-primary float-end me-2' onclick='clothMgmtManager.optInDonation(" + data['notification']['id'] + ")';>Opt in</button></div></div>"
@@ -346,6 +346,7 @@ var clothMgmtManager = (function () {
                             + '<br><strong> Address: </strong> ' + data["user"]['address']
                             + '<br><strong> Email ID: </strong> ' + data["user"]['email_id']
                             + '<br><strong> Phone No: </strong> ' + data["user"]['phone_no']
+                            + '<br><strong> Quantity: </strong> ' + data["notification"]['quantity'] + ' kg'
                             + '<br><strong> Collection status: </strong> ' + data["notification"]['collection_status']
                             + '</p>';
                             if (data["notification"]['collection_status'] !== "Collected") {
