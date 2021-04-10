@@ -4,33 +4,48 @@
 
             <h1 class="text-center">Sign up</h1>
             <hr>
+            <p id="notification" class="h6"></p>
             <form>
                 <div class="mb-3">
                     <label for="userName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="userName" aria-describedby="nameHelp" required>
+                    <input type="text" class="form-control" id="userName" aria-describedby="nameHelp" onblur="clothMgmtManager.validateEntry(event.target);" required>
+                    <div class="invalid-feedback">
+                        Please enter valid username!
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userAddress" class="form-label">Address</label>
-                    <textarea class="form-control" placeholder="Present address" id="userAddress" style="height: 100px" required></textarea>
+                    <textarea class="form-control" placeholder="Present address" id="userAddress" style="height: 100px" onblur="clothMgmtManager.validateEntry(event.target);" required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter valid address!
+                    </div>
                 </div>
                 
                 <div class="mb-3">
                     <label for="userEmail" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" required>
+                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" onblur="clothMgmtManager.validateUserName(event.target);" required>
+                    <div class="invalid-feedback">
+                        Please enter valid email ID!
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="userPassword" required>
+                    <input type="password" class="form-control" id="userPassword" onblur="clothMgmtManager.validateEntry(event.target);" required>
+                    <div class="invalid-feedback">
+                        Password field can not be empty!
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userPhoneNo" class="form-label">Phone no</label>
-                    <input type="text" class="form-control" id="userPhoneNo" aria-describedby="phone-noHelp" required>
+                    <input type="text" class="form-control" id="userPhoneNo" aria-describedby="phone-noHelp" onblur="clothMgmtManager.validatePhoneNo(event.target);" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid Phone number!
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userType" class="form-label me-2">User type</label>
                     <select class="form-select" id="userType">
-                        <option selected>Choose...</option>
-                        <option value="Doner">Doner</option>
+                        <option value="Doner" selected>Doner</option>
                         <option value="Orphanage">Orphanage</option>
                     </select>
                 </div>

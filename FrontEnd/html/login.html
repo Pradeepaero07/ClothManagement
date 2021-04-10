@@ -8,12 +8,18 @@
             <form>
                 <div class="mb-3">
                     <label for="loginEmailId" class="form-label">User Name</label>
-                    <input type="email" class="form-control" id="loginEmailId" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="loginEmailId" aria-describedby="emailHelp" onblur="clothMgmtManager.validateUserName(event.target);">
                     <div id="emailHelp" class="form-text">Please use the email-id provided while sign up.</div>
+                    <div class="invalid-feedback">
+                        Please enter valid username.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="loginPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="loginPassword">
+                    <input type="password" class="form-control" id="loginPassword" onblur="clothMgmtManager.validateEntry(event.target);">
+                    <div class="invalid-feedback">
+                        Please enter password.
+                    </div>
                 </div>
                 <button id="log-in-btn" type="button" class="btn btn-primary float-end" onclick="clothMgmtManager.validateLogin();">Log in</button>
                 <button id="sign-up-btn" type="button" class="btn btn-primary float-end me-2" onclick="clothMgmtManager.loadRegisterPage();">Sign up</button>

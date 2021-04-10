@@ -195,10 +195,17 @@ var clothMgmtManager = (function () {
     }
 
     var validateLogin = function () {
+        $('#notification').hide();
         let requestBody = {
             'user_name': $('#loginEmailId').val(),
             'password': $('#loginPassword').val()
         };
+        if($('#loginEmailId').val() == "" || $('#loginPassword').val() == ""){
+            $('#notification').html('Invalid Username/Password!!');
+            $('#notification').css({ color: 'red', fontSize: 'x-small' });
+            $('#notification').show();
+            return;
+        }
         console.log('requestBody:', requestBody);
         $.ajax({
             url: 'http://localhost:5000/rest/login',
@@ -214,7 +221,6 @@ var clothMgmtManager = (function () {
                     $('#notification').show();
                 }
                 else {
-                    $('#notification').hide();
                     isLoggedIn = true;
                     if (typeof (Storage) !== 'undefined') {
                         sessionStorage.setItem('loggedInUserName', data["email_id"]);
@@ -237,6 +243,20 @@ var clothMgmtManager = (function () {
     };
 
     var registerUser = function () {
+        $('#notification').hide();
+        if ($('#userEmail').val() == "" ||
+            $('#userName').val() == "" ||
+            $('#userAddress').val() == "" ||
+            $('#userPhoneNo').val() == "" ||
+            $('#userPassword').val() == "" ||
+            $('#userType').val() == ""
+        ) {
+            $('#notification').html('Please enter values to all the input fields!!');
+            $('#notification').css({ color: 'red', fontSize: 'x-small' });
+            $('#notification').show();
+            return;
+        }
+        
         let requestBody = {
             'email_id': $('#userEmail').val(),
             'name': $('#userName').val(),
@@ -372,6 +392,43 @@ var clothMgmtManager = (function () {
         loadLoginPage("You are logged out successfully!!");
     };
 
+    var validateUserName = function(element){
+
+        let usernameFormat = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+        $(element).css({border: '1px solid #ced4da'});
+        $(element).siblings(".invalid-feedback").hide();
+
+        if( !$(element).val().match(usernameFormat) ){
+            $(element).css({border: 'solid 1px red'});
+            $(element).siblings(".invalid-feedback").show();
+        }
+
+    };
+
+    var validatePhoneNo = function(element){
+        let phoneNoFormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        $(element).css({border: '1px solid #ced4da'});
+        $(element).siblings(".invalid-feedback").hide();
+
+        if( !$(element).val().match(phoneNoFormat) ){
+            $(element).css({border: 'solid 1px red'});
+            $(element).siblings(".invalid-feedback").show();
+        }
+    };
+
+    var validateEntry= function(element){
+
+
+        $(element).css({border: '1px solid #ced4da'});
+        $(element).siblings(".invalid-feedback").hide();
+
+        if( $(element).val() == ""){
+            $(element).css({border: 'solid 1px red'});
+            $(element).siblings(".invalid-feedback").show();
+        }
+
+    };
+
 
     return {
         loadRegisterPage: loadRegisterPage,
@@ -383,7 +440,10 @@ var clothMgmtManager = (function () {
         notifyDonation: notifyDonation,
         logOutUser: logOutUser,
         optInDonation: optInDonation,
-        markAsCollected: markAsCollected
+        markAsCollected: markAsCollected,
+        validateUserName: validateUserName,
+        validateEntry: validateEntry,
+        validatePhoneNo: validatePhoneNo
     };
 })();
 
